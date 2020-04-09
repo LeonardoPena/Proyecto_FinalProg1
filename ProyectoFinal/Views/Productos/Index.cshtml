@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ProyectoFinal.Models.productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Codigo
+        </th>
+        <th>
+            Fecha Creacion
+        </th>
+        <th>
+            Fecha Vencimiento
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            UDM
+        </th>
+        <th>
+            Costo
+        </th>
+        <th>
+            Existencia
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_creacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_vencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.existencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.codigo_producto}) |
+                @Html.ActionLink("Detalles", "Detalles", new { id = item.codigo_producto }) |
+                @Html.ActionLink("Eliminar ", "Eliminar", new { id = item.codigo_producto }, new { @class = "aDelete" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+        $(".aDelete").click(function (event) {
+            if (!confirm('Esta Seguro?')) {
+                event.preventDefault();
+            }
+
+        });
+
+    </script>
+    }

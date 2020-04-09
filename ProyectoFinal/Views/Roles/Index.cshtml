@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProyectoFinal.Models.AspNetUserRoles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @ProyectoFinal.Controllers.UsuariosController.NombreUsuario(item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @if (item.RoleId == "1")
+                {
+            <span>Administrador</span>
+}
+else if (item.RoleId == "2")
+{
+            <span>Superior</span>
+}
+else if (item.RoleId == "3")
+{
+            <span>Recepcion</span>
+ }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Editar", new { id = item.UserId, id2 = item.RoleId }) |
+
+                @Html.ActionLink("Delete", "Eliminar", new { id = item.UserId, id2 = item.RoleId }, new { @class = "aDelete" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+
+        $(".aDelete").click(function (event) {
+            if (!confirm('Esta seguro que desea eliminar?')) {
+                event.preventDefault();
+            }
+
+        });
+
+
+    </script>
+
+
+
+
+}

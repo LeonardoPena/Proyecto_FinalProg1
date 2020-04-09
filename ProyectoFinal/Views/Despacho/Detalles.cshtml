@@ -1,0 +1,74 @@
+﻿@model ProyectoFinal.Models.despacho
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>despacho</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.accion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accion)
+        </dd>
+
+        <dt>
+            Id Del Cliente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idcliente)
+        </dd>
+
+        <dt>
+            Contacto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacto)
+        </dd>
+
+        <dt>
+            Detalles
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detalle)
+        </dd>
+
+        <dt>
+            Producto ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idproducto)
+        </dd>
+
+        <dt>
+            Cantidad de Productos
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cant_producto)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Editar", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

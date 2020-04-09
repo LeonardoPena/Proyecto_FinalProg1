@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ProyectoFinal.Models.clientes>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Lista de Clientes</h2>
+
+<p>
+    @Html.ActionLink("Ingresar Nuevo Cliente", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido (Opcional)
+        </th>
+        <th>
+            Direccion
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Correo
+        </th>
+        <th>
+            Tipo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellido_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direcc_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telef_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo_cliente)
+        </td>
+        <td>
+            @{ 
+                if(item.tipo == "fisica")
+                {
+                    <span>Persona Fisica</span>
+                }
+                else
+                {
+                    <span>Empresa</span>
+                }
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new {  id=item.codigo_cliente  }) |
+            @Html.ActionLink("Detalles", "Detalles", new {id=item.codigo_cliente  }) |
+            @Html.ActionLink("Eliminar ", "Eliminar", new {  id=item.codigo_cliente  }, new { @class="aDelete"})
+        </td>
+    </tr>
+}
+
+</table>
+@section scripts{
+    <script>
+
+    $(".aDelete").click(function (event) {
+        if (!confirm('Esta seguro que desea eliminar?')) {
+            event.preventDefault();
+        }
+
+    });
+    
+    
+    </script>
+    
+    
+    
+    
+    }

@@ -1,0 +1,74 @@
+﻿@model ProyectoFinal.Models.clientes
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_cliente)
+        </dd>
+
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_cliente)
+        </dd>
+
+        <dt>
+            Apellido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido_cliente)
+        </dd>
+
+        <dt>
+            Direccioj
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direcc_cliente)
+        </dd>
+
+        <dt>
+            Telefono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telef_cliente)
+        </dd>
+
+        <dt>
+           Correo Electronico
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo_cliente)
+        </dd>
+
+        <dt>
+            Tipo de Cliente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Editar", new {  id = Model.codigo_cliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
